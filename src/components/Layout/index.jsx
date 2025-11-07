@@ -5,15 +5,15 @@ import Footer from "../Footer";
 
 const Layout = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const toggletheme = () => {
-    const nexttheme = theme === "dark" ? "light" : "dark";
-    setTheme(nexttheme);
-    localStorage.setItem("theme", nexttheme);
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
   };
   return (
     <div className={theme === "dark" ? "dark" : ""}>
       <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-        <Header toggleTheme={toggletheme} currentTheme={theme} />
+        <Header toggleTheme={toggleTheme} currentTheme={theme} />
         <main className="flex-1 mt-20">
           <Outlet />
         </main>

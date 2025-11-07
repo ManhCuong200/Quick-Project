@@ -14,11 +14,11 @@ const Footer = () => {
       <div className="flex flex-wrap justify-between w-full md:w-auto mt-10 md:mt-0">
         <div className="flex justify-between w-full min-w-[100%] md:min-w-[450px] gap-5 flex-col md:flex-row">
           <div>
-            <h3 class="font-semibold text-base mb-2">Quick Links</h3>
+            <h3 className="font-semibold text-base mb-2">Quick Links</h3>
             <ul>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -27,7 +27,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -36,7 +36,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -45,7 +45,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -64,11 +64,11 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 class="font-semibold text-base mb-2">Need Help?</h3>
+            <h3 className="font-semibold text-base mb-2">Need Help?</h3>
             <ul>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -77,7 +77,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -86,7 +86,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -95,7 +95,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -104,7 +104,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -114,11 +114,11 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 class="font-semibold text-base mb-2">Follow Us</h3>
+            <h3 className="font-semibold text-base mb-2">Follow Us</h3>
             <ul>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -127,7 +127,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -136,7 +136,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >
@@ -145,7 +145,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  class="text-foreground text-xs hover:text-primary"
+                  className="text-foreground text-xs hover:text-primary"
                   href="/"
                   data-discover="true"
                 >

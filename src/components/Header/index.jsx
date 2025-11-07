@@ -11,7 +11,7 @@ const Header = ({ toggleTheme, currentTheme }) => {
           <img className="logo max-w-12 cursor-pointer" src={Logo} alt="logo" />
         </Link>
         <div className="flex justify-end items-center gap-2">
-          <Link to="">
+          <Link to="/login">
             <button
               data-slot="button"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-[#5044E5] hover:bg-[#5044E5] h-9 px-4 py-2 has-[&gt;svg]:px-3 text-white "
@@ -23,10 +23,10 @@ const Header = ({ toggleTheme, currentTheme }) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-plus text-white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-plus text-white"
                 aria-hidden="true"
               >
                 <path d="M5 12h14"></path>
@@ -36,7 +36,7 @@ const Header = ({ toggleTheme, currentTheme }) => {
             </button>
           </Link>
           <button
-            onClick={toggleTheme}
+            onClick={() => toggleTheme()}
             data-slot="button"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
           >
@@ -51,7 +51,7 @@ const Header = ({ toggleTheme, currentTheme }) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-brightness-down"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-brightness-down"
               >
                 <path d="M0 0h24v24H0z" stroke="none" fill="none"></path>
                 <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
@@ -98,10 +98,10 @@ const Header = ({ toggleTheme, currentTheme }) => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-user"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-user"
             >
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
