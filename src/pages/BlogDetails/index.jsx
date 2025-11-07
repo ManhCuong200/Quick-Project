@@ -54,7 +54,7 @@ const BlogDetail = () => {
       <h1 className="text-5xl font-bold text-center mb-4">{blog.title}</h1>
 
       <div className="flex justify-center mb-6">
-        <span className="bg-[#766CFF0D] text-[#5044E5] px-4 py-1.5 rounded-full text-sm font-medium shadow-sm ">
+        <span className="bg-[#5149c928] border border-[#1e1595] text-[#5044E5] px-4 py-1.5 rounded-full text-sm font-medium shadow-sm ">
           {typeof blog.author === "object"
             ? blog.author.username || blog.author.email || "Unknown"
             : blog.author || "Unknown"}

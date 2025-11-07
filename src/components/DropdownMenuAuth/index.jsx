@@ -64,7 +64,7 @@ export function DropdownMenuAuth() {
           className="transition-colors duration-200 focus:bg-[#5044E5] focus:text-white hover:bg-[#5044E5] hover:text-white rounded-md"
         >
           <Link
-            to="/register"
+            to="/"
             className="flex items-center gap-2 cursor-pointer w-full"
           >
             <svg
