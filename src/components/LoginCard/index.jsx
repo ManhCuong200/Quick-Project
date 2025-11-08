@@ -23,7 +23,6 @@ export default function LoginCard() {
       toast.error("Please fill in all fields");
       return;
     }
-    //BLOck load form
     e.preventDefault();
     try {
       setLoading(true);

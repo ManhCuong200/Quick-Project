@@ -12,14 +12,12 @@ import { SignUpUser } from "@/components/services/api/users";
 import { toast } from "react-hot-toast";
 import { Spinner } from "@/components/ui/spinner";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function RegisterCard() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     if (!email || !username || !password) {
@@ -33,7 +31,6 @@ export default function RegisterCard() {
       const respone = await SignUpUser({ email, username, password });
       console.log("success:", respone);
       toast.success("Register success");
-      navigate("/Login");
     } catch (err) {
       console.log(err);
       toast.error("Register failed");
