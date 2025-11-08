@@ -24,7 +24,8 @@ const BlogItem = ({ blogs }) => {
           <Link
             key={blog._id}
             to={`/blog-details/${blog._id}`}
-            className="group block rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg bg-white transition-all duration-300"
+            className="group block rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all 
+  bg-white dark:bg-[#111111] dark:border-[#222] dark:shadow-none"
           >
             <div className="overflow-hidden rounded-t-xl bg-gray-50">
               <img
@@ -46,8 +47,7 @@ const BlogItem = ({ blogs }) => {
                   ))}
                 </div>
               )}
-
-              <h3 className="text-lg font-semibold text-gray-800 mb-1 line-clamp-1 group-hover:text-[#5044E5] transition-colors">
+              <h3 className="text-lg font-semibold text-foreground mb-1 line-clamp-1 group-hover:text-primary transition-colors">
                 {blog.title}
               </h3>
 
