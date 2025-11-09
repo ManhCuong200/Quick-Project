@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GetBlogById } from "@/services/api/blogs";
+import { Spinner } from "@/components/ui/spinner"; 
 
 const BlogDetail = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchBlog = async () => {
-      setLoading(true);
       try {
-        const data = await GetBlogById(id); 
-        console.log("Blog chi tiết:", data);
+        setLoading(true);
+        const data = await GetBlogById(id);
+        console.log("📦 Blog chi tiết:", data);
         setBlog(data);
       } catch (err) {
         console.error("Lỗi khi tải blog:", err);
-        setError("Không thể tải bài viết.");
       } finally {
         setLoading(false);
       }
@@ -28,12 +27,16 @@ const BlogDetail = () => {
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-[70vh]">
-        <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <Spinner size="lg" className="text-primary" />
       </div>
     );
 
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
-  if (!blog) return <p className="text-center mt-10">Không tìm thấy bài viết</p>;
+  if (!blog)
+    return (
+      <p className="text-center mt-10 text-muted-foreground">
+        Không tìm thấy bài viết
+      </p>
+    );
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
@@ -49,9 +52,8 @@ const BlogDetail = () => {
       )}
 
       <h1 className="text-5xl font-bold text-center mb-4">{blog.title}</h1>
-
       <div className="flex justify-center mb-6">
-        <span className="bg-[#5149c928] border border-[#1e1595] text-[#5044E5] px-4 py-1.5 rounded-full text-sm font-medium shadow-sm ">
+        <span className="bg-[#5149c928] border border-[#1e1595] text-[#5044E5] px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">
           {typeof blog.author === "object"
             ? blog.author.username || blog.author.email || "Unknown"
             : blog.author || "Unknown"}
@@ -88,7 +90,6 @@ const BlogDetail = () => {
               : "Nội dung bài viết hiện đang trống hoặc không khả dụng.",
         }}
       />
-
       {blog.updatedAt && blog.updatedAt !== blog.createdAt && (
         <p className="text-center text-xs text-muted-foreground mt-8">
           Last updated on{" "}

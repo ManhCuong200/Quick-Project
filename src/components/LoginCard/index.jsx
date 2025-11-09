@@ -8,35 +8,16 @@ import {
 import { Input } from "@/components/ui/input";
 import Logo from "@/assets/Logo.png";
 import { Link } from "react-router-dom";
-import { loginUser } from "@/services/api/users";
-import { useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
-import { toast } from "react-hot-toast";
 
-export default function LoginCard() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  
-  const handleLogin = async (e) => {
-    if (!email || !password) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const respone = await loginUser({ email, password });
-      console.log("success:", respone);
-      toast.success("Login success")
-    } catch (err) {
-      console.log(err)
-      toast.error("Login fail")
-    } finally {
-      setLoading(false);
-
-    }
-  };
+export default function LoginCard({
+  email,
+  password,
+  setEmail,
+  setPassword,
+  loading,
+  handleSubmit,
+}) {
   return (
     <Card className="w-full max-w-sm shadow-lg rounded-xl py-6">
       <CardHeader className="flex items-center justify-center pb-2">
@@ -46,7 +27,7 @@ export default function LoginCard() {
       </CardHeader>
 
       <CardContent>
-        <form className="flex flex-col gap-4" onSubmit={handleLogin}>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -62,16 +43,15 @@ export default function LoginCard() {
             placeholder="Enter your password"
             required
           />
-          <Button 
-            disabled={loading}
-            onClick={() => handleLogin({ email, password })}
+          <Button
+            onClick={() => handleSubmit()}
             type="submit"
             className="w-full bg-[#5044E5] text-white"
+            disabled={loading}
           >
             {loading ? (
               <div className="flex items-center justify-center gap-2">
-                <Spinner /> 
-                logging in
+                <Spinner /> Logging in...
               </div>
             ) : (
               "Login"

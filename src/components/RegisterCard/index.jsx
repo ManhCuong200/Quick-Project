@@ -8,36 +8,18 @@ import {
 import { Input } from "@/components/ui/input";
 import Logo from "@/assets/Logo.png";
 import { Link } from "react-router-dom";
-import { SignUpUser } from "@/services/api/users";
-import { toast } from "react-hot-toast";
 import { Spinner } from "@/components/ui/spinner";
-import { useState } from "react";
 
-export default function RegisterCard() {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleRegister = async (e) => {
-    if (!email || !username || !password) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const respone = await SignUpUser({ email, username, password });
-      console.log("success:", respone);
-      toast.success("Register success");
-    } catch (err) {
-      console.log(err);
-      toast.error("Register failed");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+export default function RegisterCard({
+  email,
+  username,
+  password,
+  setEmail,
+  setUsername,
+  setPassword,
+  loading,
+  handleSubmit,
+}) {
   return (
     <Card className="w-full max-w-sm shadow-lg rounded-xl py-6">
       <CardHeader className="flex items-center justify-center pb-2">
@@ -45,7 +27,7 @@ export default function RegisterCard() {
       </CardHeader>
 
       <CardContent>
-        <form className="flex flex-col gap-4" onSubmit={handleRegister}>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -71,14 +53,14 @@ export default function RegisterCard() {
             required
           />
           <Button
-            onClick={() => handleRegister()}
-            disabled={loading}
+            onClick={() => handleSubmit()}
             type="submit"
             className="w-full bg-[#5044E5] text-white"
+            disabled={loading}
           >
             {loading ? (
               <div className="flex items-center justify-center gap-2">
-                <Spinner /> Signing Up
+                <Spinner /> Signing Up...
               </div>
             ) : (
               "Sign Up"
@@ -89,7 +71,7 @@ export default function RegisterCard() {
 
       <CardFooter className="flex justify-center pt-1 pb-0">
         <p className="text-sm text-muted-foreground">
-          Don’t have an account?{" "}
+          Already have an account?{" "}
           <Link to="/login" className="text-[#5044E5] hover:underline">
             Login
           </Link>
