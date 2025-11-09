@@ -1,45 +1,48 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import BlogItem from "@/components/BlogItem";
+import { GetAllBlog } from "@/services/api/blogs";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
-useEffect(() => {
-  const fetchBlogs = async () => {
-    try {
-      const res = await fetch("https://api-blog-af3u.onrender.com/api/posts");
-      if (!res.ok) throw new Error("Không lấy được danh sách blog");
-      const data = await res.json();
-      console.log("✅ Kết quả API:", data);
-      const items = Array.isArray(data.items) ? data.items : [];
-      setBlogs(items);
-      setFilteredBlogs(items);
-    } catch (err) {
-      console.error("❌ Lỗi fetch:", err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-  fetchBlogs();
-}, []);
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true)
+      try {
+        const data = await GetAllBlog();
+        console.log("Kết quả API:", data);
+        const items = Array.isArray(data.items) ? data.items : [];
+        setBlogs(items);
+        setFilteredBlogs(items);
+      } catch (err) {
+        console.error("Lỗi fetch:", err);
+        setError("Không thể tải danh sách blog 😢");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   const handleSearch = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setHasSearched(true);
+
     const query = inputValue.trim().toLowerCase();
     if (query === "") {
       setFilteredBlogs(blogs);
       return;
     }
+
     const result = blogs.filter((blog) =>
-      blog.title.toLowerCase().includes(query)
+      blog.title?.toLowerCase().includes(query)
     );
     setFilteredBlogs(result);
   };
@@ -55,6 +58,7 @@ useEffect(() => {
       {error && (
         <p className="text-center mt-10 text-red-500 font-medium">{error}</p>
       )}
+
       {loading ? (
         <div className="max-w-7xl mx-auto px-4 py-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">

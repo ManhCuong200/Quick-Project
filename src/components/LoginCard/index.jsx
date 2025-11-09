@@ -8,7 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Logo from "@/assets/Logo.png";
 import { Link } from "react-router-dom";
-import { loginUser } from "@/components/services/api/users";
+import { loginUser } from "@/services/api/users";
 import { useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import { toast } from "react-hot-toast";
@@ -62,7 +62,7 @@ export default function LoginCard() {
             placeholder="Enter your password"
             required
           />
-          <Button
+          <Button 
             disabled={loading}
             onClick={() => handleLogin({ email, password })}
             type="submit"

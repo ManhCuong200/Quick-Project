@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GetBlogById } from "@/services/api/blogs";
 
 const BlogDetail = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchBlog = async () => {
+      setLoading(true);
       try {
-        const res = await fetch(
-          `https://api-blog-af3u.onrender.com/api/posts/${id}`
-        );
-        const data = await res.json();
-        console.log("📦 Blog chi tiết:", data);
+        const data = await GetBlogById(id); 
+        console.log("Blog chi tiết:", data);
         setBlog(data);
       } catch (err) {
-        console.error("❌ Lỗi khi tải blog:", err);
+        console.error("Lỗi khi tải blog:", err);
         setError("Không thể tải bài viết.");
       } finally {
         setLoading(false);
@@ -34,9 +33,7 @@ const BlogDetail = () => {
     );
 
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
-
-  if (!blog)
-    return <p className="text-center mt-10">Không tìm thấy bài viết</p>;
+  if (!blog) return <p className="text-center mt-10">Không tìm thấy bài viết</p>;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">

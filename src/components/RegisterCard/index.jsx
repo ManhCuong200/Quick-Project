@@ -8,7 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Logo from "@/assets/Logo.png";
 import { Link } from "react-router-dom";
-import { SignUpUser } from "@/components/services/api/users";
+import { SignUpUser } from "@/services/api/users";
 import { toast } from "react-hot-toast";
 import { Spinner } from "@/components/ui/spinner";
 import { useState } from "react";
@@ -77,7 +77,7 @@ export default function RegisterCard() {
             className="w-full bg-[#5044E5] text-white"
           >
             {loading ? (
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center gap-2">
                 <Spinner /> Signing Up
               </div>
             ) : (
