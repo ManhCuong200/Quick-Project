@@ -31,10 +31,10 @@ const BlogItem = ({ blogs }) => {
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-50 object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="p-5 flex flex-col justify-between min-h-[160px]">
+            <div className="p-10 flex flex-col justify-between min-h-[140px]">
               {Array.isArray(blog.tags) && blog.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-3">
                   {blog.tags.slice(0, 3).map((tag, index) => (
