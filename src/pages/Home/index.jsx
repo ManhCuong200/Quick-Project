@@ -47,7 +47,7 @@ const Home = () => {
       <HeroSection
         inputValue={inputValue}
         setInputValue={setInputValue}
-        onSearch={handleSearch}
+        handleSearch={handleSearch}
       />
 
       {loading ? (
@@ -59,7 +59,7 @@ const Home = () => {
           </div>
         </div>
       ) : filteredBlogs.length === 0 ? (
-        <div className="flex flex-col items-center justify-center mt-8">
+        <div className="flex flex-col items-center justify-center mt-8 mb-20">
           <Lottie
             animationData={noResultAnimation}
             loop

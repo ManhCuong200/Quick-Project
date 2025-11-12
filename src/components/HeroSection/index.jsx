@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroSection = ({ inputValue, setInputValue, onSearch }) => {
+const HeroSection = ({ inputValue, setInputValue, handleSearch }) => {
   return (
     <div className="text-center mt-10 mb-8">
       <h1 className="hero-title text-3xl sm:text-6xl font-semibold sm:leading-[4rem] text-gray-700">
@@ -16,7 +16,7 @@ const HeroSection = ({ inputValue, setInputValue, onSearch }) => {
       </p>
 
       <form
-        onSubmit={onSearch}
+        onSubmit={handleSearch}
         className="flex bg-card justify-between items-center max-w-lg max-sm:scale-75 mx-auto border border-gray-300 rounded overflow-hidden"
       >
         <input
