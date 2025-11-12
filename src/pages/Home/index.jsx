@@ -32,15 +32,17 @@ const Home = () => {
 const handleSearch = (e) => {
   e.preventDefault();
   const query = inputValue.trim().toLowerCase();
-
   if (!query) {
     setFilteredBlogs(blogs);
     return;
   }
+  if (query.length !== 1 || !/^[a-z]$/.test(query)) {
+    setFilteredBlogs([]);
+    return;
+  }
   const result = blogs.filter((blog) =>
-    blog.title?.toLowerCase().includes(query)
+    blog.title?.toLowerCase().startsWith(query)
   );
-
   setFilteredBlogs(result);
 };
 
