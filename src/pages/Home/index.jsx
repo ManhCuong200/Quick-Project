@@ -62,7 +62,7 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center mt-8 mb-20">
           <Lottie
             animationData={noResultAnimation}
-            loop
+            loop={true}
             className="min-h-[200px]"
           />
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-4">
