@@ -29,19 +29,20 @@ const Home = () => {
     fetchBlogs();
   }, []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const query = inputValue.trim().toLowerCase();
-    if (!query) {
-      setFilteredBlogs(blogs);
-      return;
-    }
-    const firstLetter = query[0];
-    const result = blogs.filter((blog) =>
-      blog.title?.toLowerCase().startsWith(firstLetter)
-    );
-    setFilteredBlogs(result);
-  };
+const handleSearch = (e) => {
+  e.preventDefault();
+  const query = inputValue.trim().toLowerCase();
+
+  if (!query) {
+    setFilteredBlogs(blogs);
+    return;
+  }
+  const result = blogs.filter((blog) =>
+    blog.title?.toLowerCase().includes(query)
+  );
+
+  setFilteredBlogs(result);
+};
 
   return (
     <div>
