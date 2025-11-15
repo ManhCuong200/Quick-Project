@@ -157,7 +157,7 @@ export function DropdownMenuAuth() {
               onClick={() => setOpen(false)}
               className="group flex items-center gap-2 cursor-pointer px-3 py-2 rounded-md hover:text-[#5044E5]"
             >
-              <Link to="/signup" className="flex items-center gap-2 ">
+              <Link to="/" className="flex items-center gap-2 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
