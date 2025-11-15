@@ -25,14 +25,11 @@ export const AuthContextProvider = ({ children }) => {
       if (res.status === 200) {
         const data = res.data;
         toast.success("Login successful");
-
         setUserInfo(data);
         localStorage.setItem("userInfo", JSON.stringify(data));
-
         const profile = await fetchUserProfile();
         setUserInfo({ ...data, ...profile });
         setRole(profile.user?.role);
-
         localStorage.setItem(
           "userInfo",
           JSON.stringify({ ...data, ...profile })

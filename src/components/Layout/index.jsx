@@ -12,9 +12,9 @@ const Layout = () => {
   };
   return (
     <div className={theme === "dark" ? "dark" : ""}>
-      <div className="min-h-screen w-screen overflow-x-hidden bg-background text-foreground">
+      <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground">
         <Header toggleTheme={toggleTheme} currentTheme={theme} />
-        <main className="flex-1 mt-20">
+        <main className="pt-20">
           <Outlet />
         </main>
         <Footer />  

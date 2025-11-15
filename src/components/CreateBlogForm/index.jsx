@@ -1,8 +1,14 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { Editor } from "@tinymce/tinymce-react"; 
+import { Editor } from "@tinymce/tinymce-react";
 
-const CreateBlog = ({ tagInput, setTagInput, tags, handleAddTag, handleRemoveTag }) => {
+const CreateBlog = ({
+  tagInput,
+  setTagInput,
+  tags,
+  handleAddTag,
+  handleRemoveTag,
+}) => {
   return (
     <div className="grid gap-6 px-5 mx-auto max-w-7xl my-20 min-h-[60vh]">
       <div>
@@ -66,10 +72,44 @@ const CreateBlog = ({ tagInput, setTagInput, tags, handleAddTag, handleRemoveTag
                 height: 400,
                 menubar: true,
                 plugins: [
-                  "anchor", "autolink", "charmap", "codesample", "emoticons", "link", "lists", "media", "searchreplace", "table", "visualblocks", "wordcount", 
-                  "checklist", "mediaembed", "casechange", "formatpainter", "pageembed", "a11ychecker", "tinymcespellchecker", "permanentpen", "powerpaste", "advtable", 
-                  "advcode", "advtemplate", "ai", "uploadcare", "mentions", "tinycomments", "tableofcontents", "footnotes", "mergetags", "autocorrect", "typography", 
-                  "inlinecss", "markdown", "importword", "exportword", "exportpdf"
+                  "anchor",
+                  "autolink",
+                  "charmap",
+                  "codesample",
+                  "emoticons",
+                  "link",
+                  "lists",
+                  "media",
+                  "searchreplace",
+                  "table",
+                  "visualblocks",
+                  "wordcount",
+                  "checklist",
+                  "mediaembed",
+                  "casechange",
+                  "formatpainter",
+                  "pageembed",
+                  "a11ychecker",
+                  "tinymcespellchecker",
+                  "permanentpen",
+                  "powerpaste",
+                  "advtable",
+                  "advcode",
+                  "advtemplate",
+                  "ai",
+                  "uploadcare",
+                  "mentions",
+                  "tinycomments",
+                  "tableofcontents",
+                  "footnotes",
+                  "mergetags",
+                  "autocorrect",
+                  "typography",
+                  "inlinecss",
+                  "markdown",
+                  "importword",
+                  "exportword",
+                  "exportpdf",
                 ],
                 toolbar:
                   "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
@@ -80,7 +120,9 @@ const CreateBlog = ({ tagInput, setTagInput, tags, handleAddTag, handleRemoveTag
                   { value: "Email", title: "Email" },
                 ],
                 ai_request: (request, respondWith) =>
-                  respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+                  respondWith.string(() =>
+                    Promise.reject("See docs to implement AI Assistant")
+                  ),
                 uploadcare_public_key: "73afe0c25fc5b53718b1",
               }}
             />
@@ -105,8 +147,8 @@ const CreateBlog = ({ tagInput, setTagInput, tags, handleAddTag, handleRemoveTag
               />
               <button
                 onClick={() => handleAddTag()}
-                type="button"
-                className="bg-primary text-white rounded-md px-4 h-9 hover:bg-primary/90"
+                data-slot="button"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-[#5044E5] hover:bg-primary/90 h-9 px-4 py-2 has-[&gt;svg]:px-3 text-white"
               >
                 Add Tag
               </button>
